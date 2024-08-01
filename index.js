@@ -1,5 +1,4 @@
 /* Aşağıda global olarak tanımlanmış değişkenler bulunmaktadır, bunları değiştirmeyiniz. Açıklamaları takip ederek görevleri tamamlayın. */
-
 const pi = 3.14159;
 
 const sayilar = [
@@ -50,8 +49,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2 * pi * yaricap
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,10 +63,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap, pi) {
+  return pi * Math.pow(yaricap, 2)
 }
-
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 /* 	GÖREV 3:
@@ -98,28 +96,68 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+enbuyuk = 0
+for (let i = 0; i < sayilar.length; i++) {
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i]
+  }
+}
 
-/* kodlar buraya */
+enkucuk = sayilar[0]
+for (let x = 1; x < sayilar.length; x++) {
+  if (sayilar[x] < enkucuk) {
+    enkucuk = sayilar[x]
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = []
+
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi)
+  }
+})
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => {
+  return toplam + sayi
+})
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter((sayi) => {
+  if (sayi < 500) {
+    return sayi
+  }
+})
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => {
+  return a - b
+})
 
 // 3f çözümü
 
-/* kodlar buraya */
+tekraredensayilar = []
+const depo = {}
+
+for (let i = 0; i < sayilar.length; i++) {
+  if (depo[sayilar[i]] === undefined) {
+    depo[sayilar[i]] = 1
+  } else {
+    depo[sayilar[i]] += 1
+  }
+}
+for (let x = 0; x < sayilar.length; x++) {
+  if (depo[sayilar[x]] > 1) {
+    tekraredensayilar.push(`${sayilar[x]} sayısı ${depo[sayilar[x]]} kere tekrar edilmiştir`)
+  }
+}
+console.log(tekraredensayilar)
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
